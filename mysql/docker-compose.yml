@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  mysql_database:
+    image: mysql:8.0
+    container_name: mysql_database
+    volumes:
+      - mysql_db_data:/var/lib/mysql/
+    environment:
+      MYSQL_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_USER: abuchikings
+      MYSQL_DATABASE: lend
+    ports:
+      - 3306:3306
+    networks:
+      - elantris
+networks:
+  elantris:
+volumes:
+  mysql_db_data:
