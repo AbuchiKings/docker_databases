@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  redis:
+    image: redis
+    container_name: default_redis
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    networks:
+      - elantris
+
+networks:
+  elantris:
+volumes:
+  redis_data:
